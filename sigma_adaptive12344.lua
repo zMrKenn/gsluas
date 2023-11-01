@@ -263,7 +263,11 @@ local function run_visuals()
     local cx, cy = sx / 2, sy / 2
 
     if ui_get(ovr_key) then
-        renderer_text (cx + 5, cy - 8, 255, 255, 255, 255, "c", 0, tostring(ui_get(ref_mindamage)))
+        if (ui_get(ref_mindamage)) >= 10 then
+            renderer_text (cx + 8, cy - 8, 255, 255, 255, 255, "c", 0, tostring(ui_get(ref_mindamage))) 
+        else
+            renderer_text (cx + 5, cy - 8, 255, 255, 255, 255, "c", 0, tostring(ui_get(ref_mindamage))) 
+        end
     end
 
     if ui_get(unsafe_ovr_key) then
