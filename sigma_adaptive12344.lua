@@ -1,7 +1,3 @@
--- Keen was here
--- https://keen.pub
--- Credit : spaded (for fixing some things)
-
 -- local variables for API functions. any changes to the line below will be lost on re-generation
 local client_visible, entity_hitbox_position, math_ceil, math_pow, math_sqrt, renderer_indicator, unpack, tostring, pairs = client.visible, entity.hitbox_position, math.ceil, math.pow, math.sqrt, renderer.indicator, unpack, tostring, pairs
 local ui_new_label, ui_reference, ui_new_checkbox, ui_new_combobox, ui_new_hotkey, ui_new_multiselect, ui_new_slider, ui_set, ui_get, ui_set_callback, ui_set_visible = ui.new_label, ui.reference, ui.new_checkbox, ui.new_combobox, ui.new_hotkey, ui.new_multiselect, ui.new_slider, ui.set, ui.get, ui.set_callback, ui.set_visible
@@ -263,11 +259,7 @@ local function run_visuals()
     local cx, cy = sx / 2, sy / 2
 
     if ui_get(ovr_key) then
-        if (ui_get(ref_mindamage)) >= 10 then
-            renderer_text (cx + 8, cy - 8, 255, 255, 255, 255, "c", 0, tostring(ui_get(ref_mindamage))) 
-        else
-            renderer_text (cx + 5, cy - 8, 255, 255, 255, 255, "c", 0, tostring(ui_get(ref_mindamage))) 
-        end
+        renderer_text (cx + 5, cy - 8, 255, 255, 255, 255, "c", 0, tostring(ui_get(ref_mindamage)))
     end
 
     if ui_get(unsafe_ovr_key) then
@@ -460,7 +452,7 @@ local function set_config(idx)
     ui_set(ref_automatic_fire, ui_get(rage[i].automatic_fire))
     ui_set(ref_automatic_penetration, ui_get(rage[i].automatic_penetration))
     ui_set(ref_silent_aim, ui_get(rage[i].silent_aim))
-    --ui_set(ref_accuracy_boost, ui_get(rage[i].accuracy_boost))
+    ui_set(ref_accuracy_boost, ui_get(rage[i].accuracy_boost))
 	
     
     if js_state then
@@ -565,3 +557,4 @@ local function init_callbacks()
 end
 
 init_callbacks()
+--fixed by spaded
